@@ -1,4 +1,4 @@
-"""Shared test configuration: make `labs_audit` importable and expose the repo root."""
+"""Shared test configuration: expose the repository root as `labs_root`."""
 
 from __future__ import annotations
 

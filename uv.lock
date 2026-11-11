@@ -2,6 +2,12 @@ version = 1
 revision = 5
 requires-python = "==3.10.*"
 
+[manifest]
+members = [
+    "labs-runtime",
+    "non-relational-dbs-labs",
+]
+
 [[package]]
 name = "anyio"
 version = "4.14.2"
@@ -1097,6 +1103,11 @@ wheels = [
 ]
 
 [[package]]
+name = "labs-runtime"
+version = "0.1.0"
+source = { editable = "packages/labs_runtime" }
+
+[[package]]
 name = "lark"
 version = "1.3.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1308,6 +1319,7 @@ dependencies = [
     { name = "ipywidgets" },
     { name = "jupyterlab" },
     { name = "jupytext" },
+    { name = "labs-runtime" },
     { name = "mimesis" },
     { name = "neo4j" },
     { name = "notebook" },
@@ -1355,6 +1367,7 @@ requires-dist = [
     { name = "ipywidgets", specifier = ">=8.1.8" },
     { name = "jupyterlab", specifier = "==4.6.3" },
     { name = "jupytext", specifier = "==1.19.5" },
+    { name = "labs-runtime", editable = "packages/labs_runtime" },
     { name = "mimesis", specifier = ">=18.0.0" },
     { name = "neo4j", specifier = ">=6.0.3" },
     { name = "notebook", specifier = "==7.6.2" },

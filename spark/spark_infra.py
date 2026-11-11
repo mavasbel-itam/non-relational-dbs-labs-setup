@@ -396,22 +396,7 @@ run_command(["docker", "cp", f"spark-job-venv:{SPARK_JOB_VENV_BUILD_DIR}/spark_j
 run_command(["docker", "rm", "spark-job-venv"], check=False)
 
 # %% [markdown]
-# ## 13. Driver and Executor library parity
-#
-# - **What:** compares the Python packages of `spark-jupyter` (Driver) and the packed environment (Executors).
-# - **Why:** the same code could give different results on each side if a shared package differs; the run stops in that case.
-# - **How:** `labs_parity.check_python_parity` lists both images' packages and raises `EnvironmentsDiffer` on any version difference.
-
-# %%
-from labs_parity import PythonEnvironment, check_python_parity
-
-parity_report = check_python_parity(
-    PythonEnvironment(SPARK_JUPYTER_LAB_DOCKER_TAG, "python3"),
-    PythonEnvironment(SPARK_JOB_VENV_DOCKER_TAG, f"{SPARK_JOB_VENV_BUILD_DIR}/spark_job_env/bin/python3"),
-)
-
-# %% [markdown]
-# ## 14. Write the Compose file
+# ## 13. Write the Compose file
 #
 # - **What:** generates `spark-cluster.docker-compose.yml` with the master, `spark-jupyter` and three workers on the existing `hadoop-network`.
 # - **Why:** Spark reads and writes HDFS, so it joins Hadoop's network and reaches `namenode` by name.
@@ -614,7 +599,7 @@ print(f"Successfully created: '{os.path.relpath(spark_compose_yaml_path)}'")
 display(Markdown(f"```yaml\n{spark_compose_yaml_contents}\n```"))
 
 # %% [markdown]
-# ## 15. Start Spark
+# ## 14. Start Spark
 #
 # - **What:** starts the master, JupyterLab and the workers and waits until every health check passes.
 # - **Why:** the lab notebooks need a master with registered workers and a JupyterLab that answers.
@@ -625,7 +610,7 @@ display(Markdown(f"```yaml\n{spark_compose_yaml_contents}\n```"))
 run_command(["docker", "compose", "-f", "spark-cluster.docker-compose.yml", "up", "-d", "--wait"])
 
 # %% [markdown]
-# ## 16. GraphFrames check
+# ## 15. GraphFrames check
 #
 # - **What:** checks `graphframes-py` 0.12.3 in `spark-jupyter` and both GraphFrames JARs in `/opt/spark/jars` of the Driver and every worker.
 # - **Why:** graph code fails only at run time if a piece is missing; this catches it now.

@@ -1,0 +1,12 @@
+[project]
+name = "labs-runtime"
+version = "0.1.0"
+description = "Run container commands the same way on every operating system"
+requires-python = ">=3.10,<3.11"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["labs_runtime"]

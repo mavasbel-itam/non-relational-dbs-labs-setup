@@ -27,6 +27,7 @@ dependencies = [
     "pyarrow==25.0.1",
     "pyasyncore>=1.0.4",
     "pyhive>=0.7.0",
+    "labs-runtime",
     "pymongo>=4.15.5",
     "pymysql>=1.1.2",
     "pyspark==4.1.2",
@@ -61,9 +62,15 @@ markers = [
     "e2e: the command-line audit end to end, including a negative control",
 ]
 
+[tool.uv.workspace]
+members = ["packages/*"]
+
+[tool.uv.sources]
+labs-runtime = { workspace = true }
+
 [tool.coverage.run]
 branch = true
-source = ["labs_audit", "athena_gateway", "labs_runtime", "labs_parity"]
+source = ["athena_gateway", "labs_runtime"]
 # Measure `python -m athena_gateway` when the e2e tier runs it as a process.
 patch = ["subprocess"]
 

@@ -39,7 +39,7 @@ These rules apply to maintainers and automation working inside this independent 
 
 ## Notebook Documentation
 
-- Every code cell is preceded by a markdown cell with a numbered `## ` heading and **What / Why / How** bullets, written in English; references are `📄` links to official documentation, each answering HTTP 200 and stating the cited fact. `labs_audit` enforces the structure and `https://` links; `LABS_LINKS=1 uv run pytest tests/live/test_notebook_links.py` checks every link answers 200.
+- Every code cell is preceded by a markdown cell with a numbered `## ` heading and **What / Why / How** bullets, written in English; references are `📄` links to official documentation, each answering HTTP 200 and stating the cited fact. The structural audit enforces the structure and `https://` links and runs from the course repository: `cd .. && uv run python -m scripts.labs_audit`; `LABS_LINKS=1 uv run pytest tests/live/test_labs_notebook_links.py` there also checks every link answers 200.
 
 ## AWS Contract
 
