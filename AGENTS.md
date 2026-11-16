@@ -26,7 +26,7 @@ These rules apply to maintainers and automation working inside this independent 
 - Preserve intended papermill types, especially unquoted Boolean values such as `True` and `False`.
 - Run every `*_infra.ipynb` to completion and health before its matching `*_lab.ipynb`.
 - Hive and Spark require healthy Hadoop infrastructure first.
-- Acceptance requires complete execution of every supported infrastructure/lab pair in both Local and VPN modes, including MongoDB config-server infrastructure.
+- Acceptance requires complete execution of every supported infrastructure/lab pair in both Local and VPN modes, including MongoDB config-server infrastructure. Exception: the course owner's macOS workstation has no VPN measurement, so acceptance there is Local mode only.
 
 ## Spark Contract
 
